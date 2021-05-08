@@ -46,6 +46,9 @@ if (process.env.NODE_ENV === 'production') {
     res.send('API is running....')
   })
 }
+app.get('/test', (req, res) => {
+  res.send('API is running....')
+})
 
 app.use(notFound)
 app.use(errorHandler)

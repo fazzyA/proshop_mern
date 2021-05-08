@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fe-pro-config
+data:
+  APP_DB1: http://52.139.240.96:5000/history
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fe-pro
+  name: fe-pro-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fe-pro
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fe-pro
+    spec:
+      containers:
+      - image: fazzyaziz/finosys-fe-pro:v1
+        imagePullPolicy: Always
+        name: fe-pro
+        envFrom:
+        - configMapRef:
+            name: fe-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fe-pro
+spec:
+  selector:
+    app: fe-pro
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+
