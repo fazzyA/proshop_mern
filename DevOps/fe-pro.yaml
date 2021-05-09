@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: fe-pro-config
 data:
-  APP_DB1: http://52.139.240.96:5000/history
+  APP_DB1: http://http://20.198.153.17:5004/
 ---
 apiVersion: apps/v1
 kind: Deployment

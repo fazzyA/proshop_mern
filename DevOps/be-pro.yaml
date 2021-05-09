@@ -3,9 +3,9 @@ kind: ConfigMap
 metadata:
   name: be-pro-config
 data:
-  PORT: "5000"
+  PORT: "5004"
   CLIENT: 20.197.104.123
-  MONGO_URL: mongodb://db-service-pro:27017/db-pro
+  MONGO_URI: mongodb://db-service-pro:27017/db-pro
 ---
 apiVersion: apps/v1
 kind: Deployment
