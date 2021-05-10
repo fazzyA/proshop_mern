@@ -11,3 +11,5 @@ COPY ./backend ./backend
 EXPOSE 5004
 
 CMD [ "npm", "start" ]
+
+CMD [ "npm", "run", "data:import" ]
