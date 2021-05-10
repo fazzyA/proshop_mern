@@ -25,12 +25,12 @@ spec:
         app: fe-pro
     spec:
       containers:
-      - image: fazzyaziz/finosys-fe-pro:v1
+      - image: fazzyaziz/finosys-fe-pro:v3
         imagePullPolicy: Always
         name: fe-pro
         envFrom:
         - configMapRef:
-            name: fe-config
+            name: fe-pro-config
 ---
 apiVersion: v1
 kind: Service

@@ -4,10 +4,24 @@ import {
   CART_REMOVE_ITEM,
   CART_SAVE_SHIPPING_ADDRESS,
   CART_SAVE_PAYMENT_METHOD,
-} from '../constants/cartConstants'
+} from '../constants/cartConstants';
+
+const axiosInstance = axios.create({
+ // baseURL: 'http://localhost:5004',
+   baseURL: window._env_.APP_DB1,
+});
+axiosInstance.interceptors.response.use(
+  res => {
+      return res;
+  },
+  error => {
+      return Promise.reject(error.response)
+  }
+);
+
 
 export const addToCart = (id, qty) => async (dispatch, getState) => {
-  const { data } = await axios.get(`/api/products/${id}`)
+  const { data } = await axiosInstance.get(`/api/products/${id}`)
 
   dispatch({
     type: CART_ADD_ITEM,
