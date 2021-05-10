@@ -12,4 +12,4 @@ EXPOSE 5004
 
 CMD [ "npm", "start" ]
 
-CMD [ "npm", "run", "data:import" ]
+# CMD [ "npm", "run", "data:import" ]
