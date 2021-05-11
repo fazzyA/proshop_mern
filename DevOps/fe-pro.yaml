@@ -3,7 +3,7 @@ kind: ConfigMap
 metadata:
   name: fe-pro-config
 data:
-  APP_DB1: http://http://20.198.153.17:5004/
+  APP_DB1: http://20.198.153.17:5004/
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -25,7 +25,7 @@ spec:
         app: fe-pro
     spec:
       containers:
-      - image: fazzyaziz/finosys-fe-pro:v3
+      - image: fazzyaziz/finosys-fe-pro:v2
         imagePullPolicy: Always
         name: fe-pro
         envFrom:
