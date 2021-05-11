@@ -26,7 +26,7 @@ import { logout } from './userActions'
 
 // const axiosInstance = axios.create({
 //   // baseURL: 'http://localhost:5004',
-//   baseURL: window._env_.APP_DB1,
+//   baseURL: window._env_.APP_DBB,
 // });
 // axiosInstance.interceptors.response.use(
 //   res => {
@@ -45,7 +45,7 @@ export const listProducts = (keyword = '', pageNumber = '') => async (
     dispatch({ type: PRODUCT_LIST_REQUEST })
 
     const { data } = await axios.get(
-      `/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
+      window._env_.APP_DBB+`/api/products?keyword=${keyword}&pageNumber=${pageNumber}`
     )
 
     dispatch({
@@ -67,7 +67,7 @@ export const listProductDetails = (id) => async (dispatch) => {
   try {
     dispatch({ type: PRODUCT_DETAILS_REQUEST })
 
-    const { data } = await axios.get(`/api/products/${id}`)
+    const { data } = await axios.get(window._env_.APP_DBB+`/api/products/${id}`)
 
     dispatch({
       type: PRODUCT_DETAILS_SUCCESS,
