@@ -65,7 +65,7 @@ const ProductEditScreen = ({ match, history }) => {
         },
       }
 
-      const { data } = await axios.post('/api/upload', formData, config)
+      const { data } = await axios.post(process.env.REACT_APP_DBB+'/api/upload', formData, config)
 
       setImage(data)
       setUploading(false)

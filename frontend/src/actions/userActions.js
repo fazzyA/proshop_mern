@@ -29,7 +29,7 @@ import { ORDER_LIST_MY_RESET } from '../constants/orderConstants'
 
 // const axiosInstance = axios.create({
 //   // baseURL: 'http://localhost:5004/',
-//   baseURL: window._env_.APP_DBB,
+//   baseURL: REACT_APP_DBB,
 // });
 // axiosInstance.interceptors.response.use(
 //   res => {
@@ -55,7 +55,7 @@ export const login = (email, password) => async (dispatch) => {
     }
 
     const { data } = await axios.post(
-      window._env_.APP_DBB+'/api/users/login',
+      process.env.REACT_APP_DBB+'/api/users/login',
       { email, password },
       config
     )
@@ -86,7 +86,7 @@ export const logout = () => (dispatch) => {
   dispatch({ type: USER_DETAILS_RESET })
   dispatch({ type: ORDER_LIST_MY_RESET })
   dispatch({ type: USER_LIST_RESET })
-  document.location.href = '/login'
+  document.location.href = '/'
 }
 
 export const register = (name, email, password) => async (dispatch) => {
@@ -102,7 +102,7 @@ export const register = (name, email, password) => async (dispatch) => {
     }
 
     const { data } = await axios.post(
-      window._env_.APP_DBB+'/api/users',
+      process.env.REACT_APP_DBB+'/api/users',
       { name, email, password },
       config
     )
@@ -150,7 +150,7 @@ export const getUserDetails = (id) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(window._env_.APP_DBB+`/api/users/${id}`, config)
+    const { data } = await axios.get(process.env.REACT_APP_DBB+`/api/users/${id}`, config)
 
     dispatch({
       type: USER_DETAILS_SUCCESS,
@@ -188,7 +188,7 @@ export const updateUserProfile = (user) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(window._env_.APP_DBB+`/api/users/profile`, user, config)
+    const { data } = await axios.put(process.env.REACT_APP_DBB+`/api/users/profile`, user, config)
 
     dispatch({
       type: USER_UPDATE_PROFILE_SUCCESS,
@@ -230,7 +230,7 @@ export const listUsers = () => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.get(window._env_.APP_DBB+`/api/users`, config)
+    const { data } = await axios.get(process.env.REACT_APP_DBB+`/api/users`, config)
 
     dispatch({
       type: USER_LIST_SUCCESS,
@@ -267,7 +267,7 @@ export const deleteUser = (id) => async (dispatch, getState) => {
       },
     }
 
-    await axios.delete(window._env_.APP_DBB+`/api/users/${id}`, config)
+    await axios.delete(process.env.REACT_APP_DBB+`/api/users/${id}`, config)
 
     dispatch({ type: USER_DELETE_SUCCESS })
   } catch (error) {
@@ -302,7 +302,7 @@ export const updateUser = (user) => async (dispatch, getState) => {
       },
     }
 
-    const { data } = await axios.put(window._env_.APP_DBB+`/api/users/${user._id}`, user, config)
+    const { data } = await axios.put(process.env.REACT_APP_DBB+`/api/users/${user._id}`, user, config)
 
     dispatch({ type: USER_UPDATE_SUCCESS })
 

@@ -6,6 +6,8 @@ data:
   PORT: "5004"
   CLIENT: 20.197.104.123
   MONGO_URI: mongodb://db-service-pro:27017/db-pro
+  JWT_SECRET: "finosysjwtsec"
+
 ---
 apiVersion: apps/v1
 kind: Deployment
