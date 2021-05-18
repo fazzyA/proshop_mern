@@ -20,7 +20,7 @@ import ProductEditScreen from './screens/ProductEditScreen'
 import OrderListScreen from './screens/OrderListScreen'
 
 const App = () => {
-  return (
+return (
     <Router>
       <Header />
       <main className='py-3'>

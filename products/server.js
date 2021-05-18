@@ -7,6 +7,7 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 import connectDB from './config/db.js'
 import cors from 'cors'
 import productRoutes from './routes/productRoutes.js'
+import userRoutes from './routes/userRoutes.js'
 import orderRoutes from './routes/orderRoutes.js'
 import uploadRoutes from './routes/uploadRoutes.js'
 
@@ -24,6 +25,7 @@ if (process.env.NODE_ENV === 'development') {
 app.use(express.json())
 
 app.use('/api/products', productRoutes)
+app.use('/api/users', userRoutes)
 app.use('/api/orders', orderRoutes)
 app.use('/api/upload', uploadRoutes)
 
@@ -57,6 +59,6 @@ const PORT = process.env.PORT || 5004
 app.listen(
   PORT,
   console.log(
-    `Server BE running in ${process.env.NODE_ENV} mode on port ${PORT} have secret=${process.env.JWT_SECRET}`.yellow.bold
+    `Server running in ${process.env.NODE_ENV} mode on port ${PORT} have secret=${process.env.JWT_SECRET}`.yellow.bold
   )
 )

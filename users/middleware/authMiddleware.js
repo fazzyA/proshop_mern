@@ -1,7 +1,7 @@
 import jwt from 'jsonwebtoken'
 import asyncHandler from 'express-async-handler'
 import User from '../models/userModel.js'
-// import axios from 'axios'
+
 const protect = asyncHandler(async (req, res, next) => {
   let token
 
@@ -11,11 +11,11 @@ const protect = asyncHandler(async (req, res, next) => {
   ) {
     try {
       token = req.headers.authorization.split(' ')[1]
-//  const res = await axios.post(process.env.REACT_APP_DB_USER+`/api/users/authchk`,{token})
+
       const decoded = jwt.verify(token, process.env.JWT_SECRET)
-//here check decoded id in user microservice
-// let res = localStorage.getItem(json.stringify(userInfo))
+
       req.user = await User.findById(decoded.id).select('-password')
+
       next()
     } catch (error) {
       console.error(error)

@@ -20,6 +20,7 @@ const ProductEditScreen = ({ match, history }) => {
   const [countInStock, setCountInStock] = useState(0)
   const [description, setDescription] = useState('')
   const [uploading, setUploading] = useState(false)
+  const [userID, setuserID] = useState({})
 
   const dispatch = useDispatch()
 
@@ -34,7 +35,8 @@ const ProductEditScreen = ({ match, history }) => {
   } = productUpdate
 
   useEffect(() => {
-    if (successUpdate) {
+    localStorage.getItem('userInfo')
+       if (successUpdate) {
       dispatch({ type: PRODUCT_UPDATE_RESET })
       history.push('/admin/productlist')
     } else {
@@ -48,7 +50,8 @@ const ProductEditScreen = ({ match, history }) => {
         setCategory(product.category)
         setCountInStock(product.countInStock)
         setDescription(product.description)
-      }
+        setuserID()
+           }
     }
   }, [dispatch, history, productId, product, successUpdate])
 

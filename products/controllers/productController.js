@@ -1,5 +1,4 @@
 import asyncHandler from 'express-async-handler'
-import { authCheck } from '../middleware/authCheck.js'
 import Product from '../models/productModel.js'
 
 // @desc    Fetch all products
@@ -59,17 +58,9 @@ const deleteProduct = asyncHandler(async (req, res) => {
 // @route   POST /api/products
 // @access  Private/Admin
 const createProduct = asyncHandler(async (req, res) => {
-//   if (typeof localStorage === "undefined" || localStorage === null) {
-//     const LocalStorage = require('node-localstorage').LocalStorage;
-//     localStorage = new LocalStorage('./scratch');
-//    let uss = localStorage.getItem(JSON.stringify('userInfo'))
-// console.log(uss,"---");
-//  }
-authCheck();
   const product = new Product({
     name: 'Sample name',
     price: 0,
-    // user: req.user._id,
     user: req.user._id,
     image: '/images/sample.jpg',
     brand: 'Sample brand',
