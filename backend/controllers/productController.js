@@ -1,5 +1,4 @@
 import asyncHandler from 'express-async-handler'
-import { authCheck } from '../middleware/authCheck.js'
 import Product from '../models/productModel.js'
 
 // @desc    Fetch all products

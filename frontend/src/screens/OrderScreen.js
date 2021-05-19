@@ -25,7 +25,7 @@ const OrderScreen = ({ match, history }) => {
 
   const orderDetails = useSelector((state) => state.orderDetails)
   const { order, loading, error } = orderDetails
-
+console.log(order,"000")
   const orderPay = useSelector((state) => state.orderPay)
   const { loading: loadingPay, success: successPay } = orderPay
 
@@ -98,12 +98,12 @@ const OrderScreen = ({ match, history }) => {
             <ListGroup.Item>
               <h2>Shipping</h2>
               <p>
-                <strong>Name: </strong> {order.user.name}
+                <strong>Name: </strong> {userInfo.name}
               </p>
-              <p>
+              {/* <p>
                 <strong>Email: </strong>{' '}
                 <a href={`mailto:${order.user.email}`}>{order.user.email}</a>
-              </p>
+              </p> */}
               <p>
                 <strong>Address:</strong>
                 {order.shippingAddress.address}, {order.shippingAddress.city}{' '}

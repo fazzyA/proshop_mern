@@ -173,6 +173,7 @@ export const updateProduct = (product) => async (dispatch, getState) => {
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
+    // product.user = userInfo._id
 
     const { data } = await axios.put(
       process.env.REACT_APP_DBB+`/api/products/${product._id}`,
@@ -219,6 +220,8 @@ export const createProductReview = (productId, review) => async (
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
+
+    // review.user = userInfo._id
 
     await axios.post(process.env.REACT_APP_DBB+`/api/products/${productId}/reviews`, review, config)
 
