@@ -1,0 +1,46 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: fe-pro-config
+data:
+  REACT_APP_DBB: http://20.198.153.17:5004/
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: fe-pro
+  name: fe-pro-deploy
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: fe-pro
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: fe-pro
+    spec:
+      containers:
+      - image: fazzyaziz/finosys-fe-pro:v12
+        imagePullPolicy: Always
+        name: fe-pro
+        envFrom:
+        - configMapRef:
+            name: fe-pro-config
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: fe-pro
+spec:
+  selector:
+    app: fe-pro
+  ports:
+  - port: 80
+    targetPort: 80
+  type: LoadBalancer
+

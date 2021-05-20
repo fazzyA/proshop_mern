@@ -64,7 +64,6 @@ const createProduct = asyncHandler(async (req, res) => {
 //    let uss = localStorage.getItem(JSON.stringify('userInfo'))
 // console.log(uss,"---");
 //  }
-authCheck();
   const product = new Product({
     name: 'Sample name',
     price: 0,

@@ -1,9 +1,9 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: be-pro-config
+  name: finosys-store-config
 data:
-  PORT: "5004"
+  PORT: "5001"
   CLIENT: 20.197.104.123
-  MONGO_URI: mongodb://db-service-pro:27017/db-pro
-  JWT_SECRET: "finosysjwtsec"
+  MONGO_URI: mongodb://db-store:27017/db-store
+  JWT_SECRET: "finosysjwtuser"

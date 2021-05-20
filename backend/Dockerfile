@@ -6,7 +6,7 @@ COPY package.json ./
 
 RUN npm install
 
-COPY ./backend ./backend
+COPY . .
 
 EXPOSE 5004
 

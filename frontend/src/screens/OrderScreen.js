@@ -199,7 +199,7 @@ console.log(order,"000")
                 <ListGroup.Item>
                   {loadingPay && <Loader />}
                   {!sdkReady ? (
-                    <Loader />
+                    <button>Done</button>
                   ) : (
                     <PayPalButton
                       amount={order.totalPrice}

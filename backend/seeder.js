@@ -21,7 +21,7 @@ const importData = async () => {
 
     const config = {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYTI5OTU5MGUwMGQ0MDk2MDA4MmQ2MiIsImlhdCI6MTYyMTI2ODg0OSwiZXhwIjoxNjIzODYwODQ5fQ.NOqZZjBiXIV4UtIjmnKXbG0RuWTOj271Z061eHgyIpg`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYwYTY0MTk1N2U1MDJhMDAyZDUzNzQ2MSIsImlzQWRtaW4iOnRydWUsIm5hbWUiOiJBZG1pbiBVc2VyIiwiaWF0IjoxNjIxNTA4ODYzLCJleHAiOjE2MjQxMDA4NjN9.ZnfPThpU6NBXKA3s9qtmEKTv6CwOIvruPjFKPv63hc4`,
                                      },
     }
     const { data } = await axios.get(process.env.REACT_APP_DB_USER+`/api/users`, config)

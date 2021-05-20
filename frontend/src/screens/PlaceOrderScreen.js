@@ -12,6 +12,8 @@ const PlaceOrderScreen = ({ history }) => {
   const dispatch = useDispatch()
 
   const cart = useSelector((state) => state.cart)
+  const userLogin = useSelector((state) => state.userLogin)
+  const { userInfo } = userLogin
 
   if (!cart.shippingAddress.address) {
     history.push('/shipping')
@@ -50,6 +52,7 @@ const PlaceOrderScreen = ({ history }) => {
     dispatch(
       createOrder({
         orderItems: cart.cartItems,
+        userName: userInfo.name,
         shippingAddress: cart.shippingAddress,
         paymentMethod: cart.paymentMethod,
         itemsPrice: cart.itemsPrice,
